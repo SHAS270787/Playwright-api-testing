@@ -1,13 +1,12 @@
 {
     "name": "playwright-api-framework",
-    "version": "1.0.0",
     "scripts": {
-        "test": "playwright test",
-        "postinstall": "playwright install"
+      "test": "playwright test",
+      "test:report": "playwright show-report"
     },
     "devDependencies": {
-        "@playwright/test": "^1.53.2",
-        "@types/node": "^24.0.10",
-        "dotenv": "^17.0.1"
+      "@playwright/test": "^1.43.1",
+      "dotenv": "^17.0.1"
     }
-}
+  }
+  
