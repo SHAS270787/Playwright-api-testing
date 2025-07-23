@@ -1,12 +1,10 @@
 import { defineConfig } from '@playwright/test';
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 export default defineConfig({
   use: {
-    baseURL: process.env.BASE_API_URL,
+    baseURL: process.env.API_BASE_URL,
   },
-  testDir: './tests',
-  reporter: [['list'], ['html']],
 });

@@ -1,34 +1,13 @@
 import { test, expect } from '@playwright/test';
 
-const baseURL = 'https://httpstat.us';
+const baseURL = 'https://status-api.beeceptor.com'; // your Beeceptor endpoint
+const statuses = [200, 201, 400, 401, 403, 404, 500];
 
-test.describe('Validate Common HTTP Status Codes using httpstat.us', () => {
-  const testCases = [
-    { code: 200, method: 'GET' },
-    { code: 201, method: 'GET' },
-    { code: 400, method: 'GET' },
-    { code: 401, method: 'GET' },
-    { code: 403, method: 'GET' },
-    { code: 404, method: 'GET' },
-    { code: 500, method: 'GET' },
-  ];
-
-  for (const { code, method } of testCases) {
-    test(`${method} ${code} - ${httpStatusText(code)}`, async ({ request }) => {
-      const response = await request[method.toLowerCase()](`${baseURL}/${code}`);
+test.describe('Validate HTTP status codes via Beeceptor', () => {
+  for (const code of statuses) {
+    test(`GET ${code} - should return ${code}`, async ({ request }) => {
+      const response = await request.get(`${baseURL}/${code}`);
       expect(response.status()).toBe(code);
     });
   }
 });
-
-function httpStatusText(code: number) {
-  return {
-    200: 'OK',
-    201: 'Created',
-    400: 'Bad Request',
-    401: 'Unauthorized',
-    403: 'Forbidden',
-    404: 'Not Found',
-    500: 'Internal Server Error',
-  }[code] || 'Unknown';
-}
