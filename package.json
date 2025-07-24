@@ -1,12 +1,11 @@
 {
     "name": "playwright-api-framework",
     "scripts": {
-      "test": "playwright test",
-      "test:report": "playwright show-report"
+        "test": "playwright test",
+        "test:report": "playwright show-report"
     },
     "devDependencies": {
-      "@playwright/test": "^1.43.1",
-      "dotenv": "^17.0.1"
+        "@playwright/test": "^1.43.1",
+        "dotenv": "^17.2.0"
     }
-  }
-  
+}
