@@ -7,4 +7,5 @@ export default defineConfig({
   use: {
     baseURL: process.env.API_BASE_URL,
   },
+  workers: process.env.CI ? 1 : undefined,
 });
