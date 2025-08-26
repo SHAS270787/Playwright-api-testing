@@ -5,7 +5,6 @@ dotenv.config();
 
 export default defineConfig({
   use: {
-    baseURL: process.env.API_BASE_URL,
+    baseURL: process.env.API_URL, // make sure this is set correctly
   },
-  workers: process.env.CI ? 1 : undefined,
 });
